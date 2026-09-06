@@ -1,122 +1,70 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { useRecoilValue } from "recoil";
+import { filteredTasksState } from "./recoil/tasksAtom";
+import Header from "./components/Header";
+import Column from "./components/Column";
+import AddTaskModal from "./components/AddTaskModal";
+import { Circle, Clock, CheckCircle2 } from "lucide-react";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Read filtered tasks derived from our Recoil Selector!
+  const tasks = useRecoilValue(filteredTasksState);
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
+      {/* 1. Header with search & create action */}
+      <Header onOpenModal={() => setIsModalOpen(true)} />
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+      {/* 2. Main Board Content */}
+      <main className="flex-1 max-w-7xl w-full mx-auto p-6 flex flex-col gap-6">
+        {/* Board Subtitle / Stats */}
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-semibold text-slate-300">
+            Project Sprint Board
+          </h2>
+          <span className="text-xs text-slate-400 bg-slate-900 border border-slate-800 px-3 py-1 rounded-full">
+            Total Tasks: {tasks.length}
+          </span>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+        {/* Kanban Columns (Responsive Horizontal Scroll on small screens) */}
+        <div className="flex flex-col md:flex-row gap-6 items-start overflow-x-auto pb-4">
+          {/* Column 1: To Do */}
+          <Column
+            title="To Do"
+            status="todo"
+            tasks={tasks}
+            icon={Circle}
+            badgeColor="bg-slate-800 text-slate-300 border border-slate-700"
+          />
+
+          {/* Column 2: In Progress */}
+          <Column
+            title="In Progress"
+            status="in_progress"
+            tasks={tasks}
+            icon={Clock}
+            badgeColor="bg-indigo-500/20 text-indigo-400 border border-indigo-500/30"
+          />
+
+          {/* Column 3: Done */}
+          <Column
+            title="Completed"
+            status="done"
+            tasks={tasks}
+            icon={CheckCircle2}
+            badgeColor="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
+          />
+        </div>
+      </main>
+
+      {/* 3. Add Task Modal */}
+      <AddTaskModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
+    </div>
+  );
 }
-
-export default App
