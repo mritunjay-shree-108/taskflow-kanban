@@ -1,16 +1,55 @@
-# React + Vite
+# 📋 TaskFlow — Modern Kanban Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![React](https://img.shields.io/badge/React-18-blue.svg?logo=react)](https://react.dev/)
+[![Recoil](https://img.shields.io/badge/State-Recoil-3578e5.svg?logo=recoil)](https://recoiljs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8.svg?logo=tailwindcss)](https://tailwindcss.com/)
+[![Vite](https://img.shields.io/badge/Bundler-Vite-646cff.svg?logo=vite)](https://vitejs.dev/)
+[![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black.svg?logo=vercel)](https://vercel.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-Currently, two official plugins are available:
+An intuitive, high-performance Kanban productivity board built with **React**, **Recoil State Management**, and **Tailwind CSS**. Designed for sprint planning, daily task management, and local-first data persistence.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🚀 **[Live Demo] -> (https://taskflow-kanban-2y4453wno-team1089.vercel.app/)**
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- 🔄 **Kanban Workflow**: Move tasks seamlessly across _To Do_, _In Progress_, and _Completed_ stages.
+- ⚡ **Atomic State Management**: Powered by **Recoil atoms** for fine-grained reactivity and minimal re-renders.
+- 🔍 **Instant Search & Filtering**: Fast text-based search powered by derived **Recoil selectors**.
+- 💾 **Local-First Persistence**: Custom **Recoil Atom Effects** synchronize state with `localStorage` automatically.
+- 🎯 **Priority Tagging**: Color-coded badges for _Low_, _Medium_, and _High_ priority tasks.
+- 📱 **Responsive Design**: Modern dark UI built with Tailwind CSS, adapted for desktop and mobile viewports.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+| Technology       | Purpose                                                   |
+| :--------------- | :-------------------------------------------------------- |
+| **React 18**     | UI component architecture & hooks                         |
+| **Recoil**       | Fine-grained state management (Atoms, Selectors, Effects) |
+| **Tailwind CSS** | Utility-first responsive styling                          |
+| **Lucide React** | Clean, accessible modern iconography                      |
+| **Vite**         | Fast next-generation frontend tooling                     |
+
+---
+
+## 📁 Project Architecture
+
+```text
+src/
+├── components/
+│   ├── Header.jsx          # Search bar & task creation trigger
+│   ├── Column.jsx          # Kanban status column container
+│   ├── TaskCard.jsx        # Individual task card & action controls
+│   └── AddTaskModal.jsx    # Accessible modal dialog & task form
+├── recoil/
+│   └── tasksAtom.js        # Atoms, LocalStorage effects, & derived selectors
+├── App.jsx                 # Board layout & state consumption
+├── main.jsx                # React root wrapped in <RecoilRoot>
+└── index.css               # Tailwind CSS imports & global styles
+
+
+```
