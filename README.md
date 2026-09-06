@@ -54,40 +54,39 @@ src/
 
 ```
 
-🚀 Getting Started Locally
+## 🚀 Getting Started Locally
+
 Prerequisites
-Node.js (v18 or higher)
-npm or yarn
+- Node.js (v18 or higher)
+- npm or yarn
+  
 Installation
-Clone the repository:
+1. Clone the repository:
+- git clone https://github.com/mritunjay-shree-108/taskflow-kanban.git
+- cd taskflow-kanban
 
-bash
+  
+2. Install dependencies:
+- npm install
+  
+3. Start the local development server:
+- npm run dev
 
-git clone https://github.com/mritunjay-shree-108/taskflow-kanban.git
-cd taskflow-kanban
-Install dependencies:
+4. Open http://localhost:5173 in your browser.
 
-bash
+## 🤝 Contributing
 
-npm install
-Start the local development server:
-
-bash
-
-npm run dev
-Open http://localhost:5173 in your browser.
-
-🤝 Contributing
 Contributions, issues, and feature requests are welcome! Feel free to open an issue or submit a Pull Request.
 
-Fork the Project
-Create your Feature Branch (git checkout -b feature/AmazingFeature)
-Commit your Changes (git commit -m 'feat: add some AmazingFeature')
-Push to the Branch (git push origin feature/AmazingFeature)
-Open a Pull Request
-👤 Author
-GitHub: @mritunjay-shree-108
-📝 License
-This project is licensed under the
-MIT License
-.
+1. Fork the Project
+2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
+3. Commit your Changes (git commit -m 'feat: add some AmazingFeature')
+4. Push to the Branch (git push origin feature/AmazingFeature)
+5. Open a Pull Request
+
+
+## 👤 Author
+- GitHub: @mritunjay-shree-108
+
+## 📝 License
+This project is licensed under the MIT License.
