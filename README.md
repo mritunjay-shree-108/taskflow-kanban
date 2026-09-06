@@ -53,3 +53,41 @@ src/
 
 
 ```
+
+🚀 Getting Started Locally
+Prerequisites
+Node.js (v18 or higher)
+npm or yarn
+Installation
+Clone the repository:
+
+bash
+
+git clone https://github.com/mritunjay-shree-108/taskflow-kanban.git
+cd taskflow-kanban
+Install dependencies:
+
+bash
+
+npm install
+Start the local development server:
+
+bash
+
+npm run dev
+Open http://localhost:5173 in your browser.
+
+🤝 Contributing
+Contributions, issues, and feature requests are welcome! Feel free to open an issue or submit a Pull Request.
+
+Fork the Project
+Create your Feature Branch (git checkout -b feature/AmazingFeature)
+Commit your Changes (git commit -m 'feat: add some AmazingFeature')
+Push to the Branch (git push origin feature/AmazingFeature)
+Open a Pull Request
+👤 Author
+GitHub: @mritunjay-shree-108
+📝 License
+This project is licensed under the
+MIT License
+.
