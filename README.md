@@ -9,7 +9,7 @@
 
 An intuitive, high-performance Kanban productivity board built with **React**, **Recoil State Management**, and **Tailwind CSS**. Designed for sprint planning, daily task management, and local-first data persistence.
 
-🚀 **[Live Demo] -> (https://taskflow-kanban-2y4453wno-team1089.vercel.app/)**
+🚀 **[Live Demo] -> (https://taskflow-kanban-sigma.vercel.app/)**
 
 ---
 
